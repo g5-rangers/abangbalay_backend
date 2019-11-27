@@ -1,7 +1,7 @@
 const Property = require('../model/property');
 
 exports.create = (req, res) => {
-    const property = new Property({
+    const create_property = new Property({
         image: req.body.image,
         title: req.body.title,
         address: req.body.address,
@@ -9,7 +9,7 @@ exports.create = (req, res) => {
         payment: req.body.payment,
     });
 
-    property.save((err, property) => {
+    create_property.save((err, property) => {
         if(err){
             res.send(err);
         }    

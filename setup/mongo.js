@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 const atlas = "mongodb+srv://jean:jeanpassword@cluster0-chvj2.azure.mongodb.net/abang?retryWrites=true&w=majority";
-var mongoDB = 'mongodb://127.0.0.1/abang';
+var mongoDB = 'mongodb://127.0.0.1/abang';  
 console.log("connecting");
 mongoose.Promise = global.Promise;
 

@@ -13,26 +13,15 @@ exports.create = (req, res) => {
         response.data.status = true
         response.data.body = result
         response.data.message = "successfully registered"
-        res.send(response)
+        res.send(response.data)
     }).catch(err => {
         response.error.status = true
         response.response_status=500
         response.data = null
         response.error.body = err
         response.error.message = "failed to register"
-        res.send(response)
+        res.send(response.data)
     })
-    // const register = new User({
-    //     email: req.body.email,
-    //     password: req.body.password,
-    // });
-
-    // register.save((err, user) => {
-    //     if(err){
-    //         res.send(err);
-    //     }    
-    //     res.json(user);
-    // });
 }
 
 exports.get = (req, res) => {
@@ -53,10 +42,5 @@ exports.get = (req, res) => {
             })
         }
     })
-    // Movie.find({}, (err, movies) => {
-    //     if(err){
-    //         res.send(err);
-    //     }    
-    //     res.json({ data : movies});
-    // });
+    
 }
