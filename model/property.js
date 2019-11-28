@@ -4,10 +4,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var property = new Schema({
-  location: {type:String},
-  details: {type:String},
   image: {type:String},
-  price: {type:String}
+  title: {type: String},  
+  address: {type:String},
+  occupants: {type:Number},  
+  payment: {type:Number}
 
 },
   { collection: 'property' }
