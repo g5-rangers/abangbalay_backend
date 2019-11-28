@@ -1,10 +1,14 @@
 const express = require('express');
 const app = express.Router();
+// require('../config/multer')
 
-const image_controller = require('../controller/imageController');
+require('../controller/imageController');
+var upload = require('../config/multer')
 
+app.post('/uploadMultiple', upload.array('img'), (req, res, next) => {
+    const imgs = req.files
+    cb(imgs, res)
+})
 
-app.post('/', image_controller.create);
-app.get('/', image_controller.get);
 
 module.exports = app;
