@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express.Router();
-// require('../config/multer')
+const multer = require('multer')
 
 require('../controller/imageController');
-var upload = require('../config/multer')
+var upload = multer();
 
 app.post('/uploadMultiple', upload.array('img'), (req, res, next) => {
     const imgs = req.files
