@@ -48,7 +48,7 @@ exports.get = (req, res) => {
 
             }
         }else{
-            res.status(404).send("err")
+            res.status(404).send("error")
         }
     })
 
