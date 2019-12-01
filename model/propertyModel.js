@@ -7,13 +7,12 @@ var property = new Schema({
   image: {type:String},
   title: {type: String},  
   address: {type:String},
-  occupants: {type:Number},  
+  occupants: {type:Number},
   payment: {type:Number}
-
 },
-  { collection: 'property' }
+  { collection: 'properties' }
 );
 
-var Property = mongoose.model('Property', property)
+var Property = mongoose.model('properties', property)
 
 module.exports = Property

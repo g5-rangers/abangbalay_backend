@@ -1,4 +1,4 @@
-require('../model/image')
+require('../model/imageModel')
 
 let saveImage = ()=>{
     return true || false

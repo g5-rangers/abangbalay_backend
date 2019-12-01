@@ -1,4 +1,4 @@
-const Property = require('../model/property');
+const Property = require('../model/propertyModel');
 
 exports.create = (req, res) => {
     const create_property = new Property({
@@ -15,4 +15,13 @@ exports.create = (req, res) => {
         }    
         res.json(property);
     });
+}
+
+exports.retrieve = (req , res) =>{
+    Property.find({},(err,data) =>{
+        if(err){
+            res.send(err);
+        }
+        res.json(data)
+    })
 }
