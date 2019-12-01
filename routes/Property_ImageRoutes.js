@@ -1,30 +1,28 @@
 const express = require('express');
 const app = express.Router();
-const multer = require('multer')
+const upload = require('../middlewares/multer').array('img', 6);
+const propertyController = require('../controller/rangiePropertyController');
+const checkUploadPath = require('../middlewares/checkpath');
 
-var uploader = require('../controller/imageController');
-var getAll = require('../controller/propertyController');
-
-var storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'photos');
-    },
-    filename: function (req, file, cb) {
-        console.log( `${Date.now()}_${file.originalname}`);
-        
-        cb(null, `${Date.now()}_${file.originalname}`);
-      },
+app.post('/uploadMultiple', checkUploadPath, (req, res) => {
+    upload(req, res, (err) => {
+        if (err) {
+            return res.end("Error uploading file.");
+        } else {
+            var imgs = req.files
+            if (!imgs || !imgs.length) {
+                const error = new Error('Please upload a file')
+                error.httpStatusCode = 400
+                res.status(500).send(error);
+            } else {
+                propertyController.saveProperty(req, res)
+            }
+        }
+    });
 })
 
-var upload = multer({ storage: storage }).array('img',6)
-
-app.post('/uploadMultiple', upload, (req, res, next) => {
-    uploader(req, res)
-    // res.send(imgs);
-})
-
-app.get('/uploadMultiple', (req, res, next) => {
-    getAll.retrieve(req,res)
+app.get('/retrieveAll', (req, res) => {
+    getAll.retrieveAll(res);
     // uploader(req, res)
     // res.send(imgs);
 })

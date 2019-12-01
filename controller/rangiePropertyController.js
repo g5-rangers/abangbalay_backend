@@ -1,10 +1,10 @@
 const Property = require('../model/rangiePropertyModel');
 
-exports.create = (req, res) => {
+exports.saveProperty = (req, res) => {
     var imgUrl = `http://localhost:4000/files/`
     var details = JSON.parse(req.body.details)
     console.log(details);
-    
+
     var imgs = req.files.map(img => {
         img.filename = imgUrl + img.filename
         return img.filename
@@ -27,4 +27,13 @@ exports.create = (req, res) => {
 
         res.json(property);
     });
+}
+
+exports.retrieveAll = (res) => {
+    Property.find({}, (err, data) => {
+        if (err) {
+            res.status(500).send(err);
+        }
+        res.json(data)
+    })
 }

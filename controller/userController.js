@@ -1,7 +1,6 @@
 const User = require('../model/userModel');
 const jwt = require('jsonwebtoken');
-const sercet = "madam1234"
-
+const _CONFIG= require('../config/keys');
 
 exports.create = (req, res) => {
     console.log(req.body)
@@ -37,7 +36,7 @@ exports.get = (req, res) => {
         if (result) {
             var respass = result.password
             if (pass == respass) {
-                var token = jwt.sign(req.body, sercet, { expiresIn: "7d" })
+                var token = jwt.sign(req.body, _CONFIG.sercet, { expiresIn: "7d" })
                 res.send({
                     user: {
                         email: result.email,
