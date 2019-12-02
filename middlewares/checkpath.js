@@ -4,14 +4,14 @@ module.exports = (req, res, next) => {
         if (exists) {
             next();
         }
-        else {
-            fs.mkdir(uploadPath, (err) => {
-                if (err) {
-                    console.log('Error in folder creation');
-                    next();
-                }
-                next();
-            })
-        }
+        // else {
+        //     fs.mkdir(uploadPath, (err) => {
+        //         if (err) {
+        //             console.log('Error in folder creation');
+        //             next();
+        //         }
+        //         next();
+        //     })
+        // }
     })
 }

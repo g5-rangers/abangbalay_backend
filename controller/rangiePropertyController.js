@@ -29,7 +29,7 @@ exports.saveProperty = (req, res) => {
     });
 }
 
-exports.retrieveAll = (res) => {
+exports.RetrieveAll = (res) => {
     Property.find({}, (err, data) => {
         if (err) {
             res.status(500).send(err);

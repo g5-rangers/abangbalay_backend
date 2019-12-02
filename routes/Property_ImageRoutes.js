@@ -2,9 +2,9 @@ const express = require('express');
 const app = express.Router();
 const upload = require('../middlewares/multer').array('img', 6);
 const propertyController = require('../controller/rangiePropertyController');
-const checkUploadPath = require('../middlewares/checkpath');
+// const checkUploadPath = require('../middlewares/checkpath');
 
-app.post('/uploadMultiple', checkUploadPath, (req, res) => {
+app.post('/uploadMultiple',(req, res) => {
     upload(req, res, (err) => {
         if (err) {
             return res.end("Error uploading file.");
@@ -22,7 +22,7 @@ app.post('/uploadMultiple', checkUploadPath, (req, res) => {
 })
 
 app.get('/retrieveAll', (req, res) => {
-    getAll.retrieveAll(res);
+    propertyController.RetrieveAll(res);
     // uploader(req, res)
     // res.send(imgs);
 })
