@@ -16,6 +16,7 @@ exports.saveProperty = (req, res) => {
         occupants: details.occupants,
         freebies: details.freebies,
         payment: details.payment,
+        creator: details.creator
     });
     create_property.save((err, property) => {
         if (err) {

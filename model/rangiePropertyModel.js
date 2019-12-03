@@ -8,7 +8,8 @@ const PropertySchema = new Schema({
     address: {type : String , required: true},
     occupants: {type: Number , required: true},
     freebies: {type: String , required: true},
-    payment: {type: Number , required: true}
+    payment: {type: Number , required: true},
+    creator: {type: String, required: true}
 },{
     collection:'properties'
 })
