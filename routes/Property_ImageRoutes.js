@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express.Router();
 const upload = require('../middlewares/multer').array('img', 6);
-const propertyController = require('../controller/rangiePropertyController');
+const propertyController = require('../controller/PropertyController');
 // const checkUploadPath = require('../middlewares/checkpath');
 
 app.post('/uploadMultiple',(req, res) => {

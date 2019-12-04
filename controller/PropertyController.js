@@ -1,4 +1,4 @@
-const Property = require('../model/rangiePropertyModel');
+const Property = require('../model/PropertyModel');
 
 exports.saveProperty = (req, res) => {
     var imgUrl = `http://localhost:4000/files/`
@@ -16,7 +16,10 @@ exports.saveProperty = (req, res) => {
         occupants: details.occupants,
         freebies: details.freebies,
         payment: details.payment,
-        creator: details.creator
+        creator: details.creator,
+        owner_name: details.owner_name,
+        email: details.email,
+        contact: details.contact
     });
     create_property.save((err, property) => {
         if (err) {

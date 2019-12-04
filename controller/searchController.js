@@ -1,4 +1,4 @@
-const Property = require('../model/rangiePropertyModel');
+const Property = require('../model/PropertyModel');
 
 exports.search = (req, res) => {
     console.log(req.params);

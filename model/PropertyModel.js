@@ -9,7 +9,10 @@ const PropertySchema = new Schema({
     occupants: {type: Number , required: true},
     freebies: {type: String , required: true},
     payment: {type: Number , required: true},
-    creator: {type: String, required: true}
+    creator: {type: String, required: true},
+    owner_name: {type: String, required: true},
+    email: {type: String, required: true},
+    contact: {type: Number, required: true}
 },{
     collection:'properties'
 })
