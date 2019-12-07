@@ -9,6 +9,14 @@ var user = new Schema({
   { collection: 'account' }
 );
 
+user.statics.updateUser = async function(email, newEmail, newPassword) {
+  return await this.updateOne({"email" : email}, {$set : {"email" : newEmail, "password" : newPassword}})
+}
+
+user.statics.getByEmail = async function(email) {
+  return await this.findOne({"email" : email})
+}
+
 var User = mongoose.model('User', user);
 
 module.exports = User

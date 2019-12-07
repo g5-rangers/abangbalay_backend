@@ -10,7 +10,7 @@ const PropertySchema = new Schema({
     freebies: {type: String , required: true},
     payment: {type: Number , required: true},
     creator: {type: String, required: true},
-    owner_name: {type: String, required: true},
+    owner_name: {type: String, required:true},
     email: {type: String, required: true},
     contact: {type: Number, required: true}
 },{
