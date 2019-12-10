@@ -2,7 +2,7 @@ const express = require('express');
 const app = express.Router();
 const upload = require('../middlewares/multer').array('img', 6);
 const propertyController = require('../controller/PropertyController');
-// const checkUploadPath = require('../middlewares/checkpath');
+
 
 app.post('/uploadMultiple',(req, res) => {
     upload(req, res, (err) => {
@@ -23,8 +23,7 @@ app.post('/uploadMultiple',(req, res) => {
 
 app.get('/retrieveAll', (req, res) => {
     propertyController.RetrieveAll(res);
-    // uploader(req, res)
-    // res.send(imgs);
+
 })
 
 
